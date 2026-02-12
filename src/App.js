@@ -7,23 +7,29 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from "./components/Spinner.js";
 
 const App = () => {
 
   const [courses,setCourses]=useState(null);
+  const [loading,setLoading]= useState(true);
   useEffect(()=>{
+
+    
     const fetchdata= async()=>{
 
-      
-     
+         setLoading(true);
+
        try{
           const response=  await fetch(apiUrl);
           const output=await response.json();
-          // console.log(output);
+          console.log(output);
+          // make sure to write output.data
           setCourses(output.data);
        }
        catch(error){
          toast.error("something went wrong");
+         setLoading(false);
        }
      }
      fetchdata(); 
@@ -32,17 +38,21 @@ const App = () => {
   // const [category,setCategoty]=useState(filterData)
   return (
     <div>
-          <Navbar></Navbar>
-          <Filter 
-            discriminativeData={filterData}
-          >
+          <div>
+            <Navbar></Navbar>
+          </div>
 
-          </Filter>
+          <div>
+          <Filter discriminativeData={filterData}> </Filter>
+          </div>
 
-          <Cards 
-          courses={courses}
-          ></Cards>
+          <div>
+          {
+            loading?(<Spinner/>):(<Cards courses={courses}/>)
+          }
+          </div>
   </div>
+
   )
 
 };

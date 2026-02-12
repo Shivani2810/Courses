@@ -1,0 +1,29 @@
+import { FcLike } from "react-icons/fc";
+
+function Card({course})
+{
+
+    console.log("courses:", course);
+    return(
+       <div>
+         
+
+           <div>
+            <img src={course.image}></img>
+
+            <div>
+            <button>
+                <FcLike/>
+            </button>
+            </div>
+
+            <div>
+                <p>{course.title} </p>
+                <p>{course.description} </p>
+            </div>
+
+           </div>
+       </div>
+    )
+}
+export default Card;
