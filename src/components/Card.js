@@ -9,7 +9,7 @@ function Card({course})
          
 
            <div>
-            <img src={course.image}></img>
+            <img src={course.image.url} alt={course.image.alt} ></img>
 
             <div>
             <button>

@@ -9,10 +9,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from "./components/Spinner.js";
 
-const App = () => {
+const App = () => { 
 
   const [courses,setCourses]=useState(null);
   const [loading,setLoading]= useState(true);
+
+  
+  
   useEffect(()=>{
 
     
@@ -29,15 +32,17 @@ const App = () => {
        }
        catch(error){
          toast.error("something went wrong");
-         setLoading(false);
+         
        }
+       setLoading(false);
+       
      }
      fetchdata(); 
     },[])
 
   // const [category,setCategoty]=useState(filterData)
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
           <div>
             <Navbar></Navbar>
           </div>

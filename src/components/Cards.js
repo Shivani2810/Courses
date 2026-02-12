@@ -1,31 +1,22 @@
 import Card from "./Card";
 
 function Cards({ courses }) {
+  console.log("courses:", courses);
 
-    console.log("courses:", courses);
+  if (!courses) return <div>Loading...</div>;
 
+  const allCourses = [];
+  Object.values(courses).forEach((categoryArr) => {
+    categoryArr.forEach((course) => allCourses.push(course));
+  });
 
-  if (!courses) {
-    return <div>Loading...</div>;
-  }
-
-  const getCourses = () => {
-    let allCourses = [];
-
-    Object.values(courses).forEach((categoryArr) => {
-      categoryArr.forEach((course) => {
-        allCourses.push(course);
-      });
-    });
-
-    return allCourses;
-  };
+  if (allCourses.length === 0) return <div>No courses found</div>;
 
   return (
     <div>
-      {getCourses().map((course) => {
-        return <Card key={course.id} course={course} />
-      })}
+      {allCourses.map((course) => (
+        <Card key={course.id} course={course} />
+      ))}
     </div>
   );
 }
