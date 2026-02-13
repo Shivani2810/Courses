@@ -54,7 +54,11 @@ const Card = ({ course, likedCourses, setLikedCourses }) => {
         </p>
 
         <p className="mt-2 text-gray-300 text-sm">
-          {course.description}
+          {
+            (course.description.length)>100?
+            (course.description.substr(0,100)+"..."):
+            (course.description)
+          }
         </p>
       </div>
 
