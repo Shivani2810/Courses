@@ -47,6 +47,9 @@ const App = () => {
             <Navbar></Navbar>
           </div>
 
+
+        <div className="min-h-screen bg-gradient-to-br from-pink-900 via-slate-900 to-pink-700 text-white">
+  
           <div>
           <Filter discriminativeData={filterData}> </Filter>
           </div>
@@ -55,6 +58,7 @@ const App = () => {
           {
             loading?(<Spinner/>):(<Cards courses={courses}/>)
           }
+          </div>
           </div>
   </div>
 

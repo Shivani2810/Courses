@@ -1,7 +1,8 @@
 import Card from "./Card";
+import { useState } from "react";
 
 function Cards({ courses }) {
-  console.log("courses:", courses);
+  const [likedCourses, setLikedCourses] = useState([]);
 
   if (!courses) return <div>Loading...</div>;
 
@@ -13,9 +14,14 @@ function Cards({ courses }) {
   if (allCourses.length === 0) return <div>No courses found</div>;
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-6 max-w-[1000px] mx-auto">
       {allCourses.map((course) => (
-        <Card key={course.id} course={course} />
+        <Card
+          key={course.id}
+          course={course}
+          likedCourses={likedCourses}
+          setLikedCourses={setLikedCourses}
+        />
       ))}
     </div>
   );
