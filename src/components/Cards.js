@@ -21,7 +21,7 @@ function Cards({ courses, category }) {
     filteredCourses = courses[category] || [];
   }
 
-  if (filteredCourses.length === 0)
+  if (filteredCourses.length === 0) 
     return <div>No courses found</div>;
 
   return (
