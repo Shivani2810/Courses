@@ -34,7 +34,8 @@ const Card = ({ course, likedCourses, setLikedCourses }) => {
         />
 
         {/* Like Button */}
-        <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 bottom-3 grid place-items-center shadow-md">
+        <div className="w-[40px] h-[40px] bg-white rounded-full absolute right-2 bottom-[-14px] 
+        grid place-items-center shadow-md">
           <button onClick={clickHandler}>
             {
                 likedCourses.includes(course.id)?

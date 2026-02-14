@@ -13,6 +13,8 @@ const App = () => {
 
   const [courses,setCourses]=useState(null);
   const [loading,setLoading]= useState(true);
+  let[category,setCategory]=useState(filterData[0].title);
+  
 
   
   
@@ -51,12 +53,15 @@ const App = () => {
         <div className="min-h-screen bg-gradient-to-br from-pink-900 via-slate-900 to-pink-700 text-white">
   
           <div>
-          <Filter discriminativeData={filterData}> </Filter>
-          </div>
+          <Filter discriminativeData={filterData}
+          category={category}
+          setCategory={setCategory}
+          > </Filter>
+          </div> 
 
           <div>
           {
-            loading?(<Spinner/>):(<Cards courses={courses}/>)
+            loading?(<Spinner/>):(<Cards courses={courses} category={category}/>)
           }
           </div>
           </div>
